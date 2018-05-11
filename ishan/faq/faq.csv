@@ -1,0 +1,27 @@
+1,Can these tickets booked online ?,Yes,Yes
+2,Max No of passengers booked per ticket,6,6
+3,Can Wait listed tickets booked ?,Yes,Yes
+4,Can RAC tickets booked ?,Yes,Yes
+5,Can Confirmed tickets booked ?,Yes,Yes
+6,Max time limit upto which tickets can be booked ?,before 2/3 clear days,upto chart preparation
+7,Is name change permissible ?,Yes - as per Name change rules of Railways,Yes - as per Name change rules of Railways
+8,Is Journey Alterations permissible ?,Yes - as per Journey Alteration rules of Railways,No
+9,Is Change of boarding point permissible ?,Yes - as per Railway Rules,Yes - as per Railway Rules
+10,Can cancellation be done across counters ?,Yes - as per Normal Railway Procedure,No
+11,Cancellation Online - Before Charting,No,Yes - Only Online
+12,Cancellation Online - After charting,No - Obtain TDR from Any Station and apply Refunds,No - Email to be sent to etickets@irctc.co.in immediately
+13,Can both Credit card and debit card be used for booking ?,Yes,Yes
+14,Can Partial Cancellation be done before charting ?,Yes - across counter as per normal Railway Rules,Yes
+15,Is ID Proof Required for Booking ?,No,No at the time of booking but required during train journey - valid Id as listed in Website
+16,Service Charges for booking per tickets ,"Rs.80/- for SL,2S and Rs.120 for all other Upper classes plus service tax","IRCTC levies a service charge of Rs.20/- (Second / Sleeper) and Rs.40/-per e-ticket in case of all other classes(1AC,2AC,3AC,CC,3E,FC) plus service tax irrespective of the number of passengers booked on an e-ticket."
+17,email address,care@irctc.co.in,etickets@irctc.co.in (For cancellation of e-tickets)
+18,Authority to Travel,Original tickets issued by Railways,Electronic Reservation Slip - printed in standard stationery/VRM/SMS sent by IRCTC along with the original ID of one of the passenger traveling on a PNR.
+19,Booking Hours,12.20 am to 11.45 pm.,12.20 am to 11.45 pm.
+20,Max no of Bookings per month,6,6
+21,Can more than single leg journey be booked ?,No,No
+22,Can Concessions be booked,Only Senior Citizen Concession,Only Senior Citizen Concession
+23,Can Tatkal be booked,No,Yes
+24,What are the Quotas that can be booked ?,"GN - General, LD - Ladies","GN - General, LD - Ladies, CK - Tatkal Quota"
+25,Does payment made confirms booking of tickets ?,No - Only tickets available in Booked Tickets link confirms booking,No - Only tickets available in Booked Tickets link confirms booking
+26,How to Locate the tickets ?,go to Track Your Ticket,go to Reprint your Ticket
+27,What if I Lost my ticket ?,Duplicate ticket issued at Railway Reservation Counter as per normal Rules,"The ERS/VRM/SMS sent by IRCTC along with the ID proof in original would be verified by TTE with the name and PNR on the chart. If the passenger fails to produce/display ERS/VRM/SMS sent by IRCTC due to any eventuality (loss, discharged mobile/laptop, etc) but has the prescribed original proof of identity, a penalty of Rs. 50/- per ticket as applicable to such cases will be levied. The ticket checking staff on train/at station will give EFT for the same."

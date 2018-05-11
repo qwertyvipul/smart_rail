@@ -1,0 +1,317 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chiragm4</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
+	<script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+	<link rel="stylesheet" href="main.css"/>
+	<link rel="stylesheet" href="css-icon.css"/>
+</head>
+<body>
+
+<div id="mapid" style="width: 600px; height: 400px;"></div>
+<button onclick="getLocation()">Try It</button>
+<button onclick="display()">display</button>
+<p id="demo"></p>
+<p id="doit"></p>
+<p id="doiton"></p>
+<p id="yash"></p>
+<script>
+
+var x = document.getElementById("demo");
+var y = document.getElementById("doit");
+var q= document.getElementById("doiton");
+var z= document.getElementById("yash");
+var lat = "";
+var lon ="";
+
+var manIcon = L.icon({
+    iconUrl: "man.png",
+    iconSize:     [48,48], // size of the icon
+    iconAnchor:   [23,38],
+	className: 'blinking',
+
+});
+var flagIcon = L.icon({
+    iconUrl: "flag.png",
+    iconSize:     [40,40], // size of the icon
+    iconAnchor:   [7,38],
+//	  className: 'css-icon',
+ // html: '<div class="gps_ring"></div>'
+	
+});
+var blueIcon = L.icon({
+    iconUrl: "blue-marker.png",
+    iconSize:     [26,26], // size of the icon
+    
+});
+var redIcon = L.icon({
+    iconUrl: "red-marker.png",
+    iconSize:     [26,26], // size of the icon
+    
+});
+
+
+
+
+
+
+       
+var options = {
+	enableHighAccuracy: true,
+	timeout: 5000,
+	maximumAge: 0       
+};
+
+
+function getLocation(){
+    if (navigator.geolocation) {
+	    navigator.geolocation.getCurrentPosition(showPosition, error, options);
+        navigator.geolocation.watchPosition(showPosition, error, options);
+    }else{ 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function error(){
+	x.innerHTML = "not able to connect to server";
+}
+	
+//called by geo location
+var current;
+var route;
+var mymap;
+function changeCurrent(position)
+{
+	L.marker([position.coords.latitude,position.coords.longitude],{icon:manIcon}).addTo(mymap);
+	mymap.panTo([position.coords.latitude,position.coords.longitude]);
+}
+function showPosition(position){
+    x.innerHTML = "Latitude: " + position.coords.latitude + 
+   "<br>Longitude: " + position.coords.longitude + "<br>Accuracy: " + position.coords.accuracy;
+	lat = position.coords.latitude;
+	lon = position.coords.longitude;
+	accuracy=position.coords.accuracy;
+
+	
+
+	mymap = L.map('mapid');
+	mymap.setView([lat, lon], 20);
+	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+		maxZoom: 23,
+		id: 'mapbox.streets'
+	}).addTo(mymap);
+	changeCurrent(position);
+
+	//icon for current location
+	
+
+//current=L.marker([position.coords.latitude,position.coords.longitude],{icon:manIcon});
+	
+	//current.addTo(mymap);
+	var dest_lat;
+	var dest_lon;
+	
+   
+   var dest;
+/*	mymap.on('click', function (e) {
+    if (dest) { // check
+        mymap.removeLayer(dest); // remove
+    }
+    dest = new L.Marker(e.latlng,{icon:flagIcon}).addTo(mymap);
+	var pop=L.popup();
+	pop.setContent("Your destination")
+		dest.bindPopup(pop).openPopup();
+		var coord = e.latlng.toString().split(',');
+		var lat = coord[0].split('(');
+		var lng = coord[1].split(')');
+		z.innerHTML=lat[1]+" "+lng[0];
+		dest_lat=lat[1];
+		dest_lon=lng[0];
+});*/
+   var desti=null;
+function setDestMark(e)
+{
+	if (desti!=null) { // check
+        mymap.removeLayer(dest);
+		desti=null;
+		// remove
+    }
+    dest = new L.Marker(e.latlng,{icon:flagIcon}).addTo(mymap);
+	desti=dest;
+	var pop=L.popup();
+	pop.setContent("Your destination")
+		dest.bindPopup(pop);
+		var coord = e.latlng.toString().split(',');
+		var lat = coord[0].split('(');
+		var lng = coord[1].split(')');
+		z.innerHTML=lat[1]+" "+lng[0];
+		dest_lat=lat[1];
+		dest_lon=lng[0];
+		showRoute(dest_lat,dest_lon);
+}
+
+function showRoute(dest_lat,dest_lon)
+{
+	if(route!=null)
+	{
+		mymap.removeLayer(route);
+	}
+	var current_lat=position.coords.latitude;
+	var current_lon=position.coords.longitude;
+	var pointA = new L.LatLng(current_lat,current_lon);
+	var pointB = new L.LatLng(dest_lat,dest_lon);
+	console.log(current_lat+" "+current_lon);
+	console.log(dest_lat+" "+dest_lon);
+    var pointList = [pointA,pointB];
+	route= new L.Polyline(pointList, {
+    color: 'red',
+    weight: 3,
+    opacity: 0.5,
+    smoothFactor: 1
+});
+
+    route.addTo(mymap);
+}
+ var markers=[];
+ var arr=[
+
+[30.352384, 76.363344,"a"],
+
+[30.352877, 76.363172,"b"],
+
+[30.353257, 76.363207,"c"],
+
+[30.353264, 76.363496,"d"],
+
+[30.352907, 76.363668,"e"],
+
+[30.352414, 76.363665,"f"],
+
+[30.3529, 76.363454,"g"]
+
+];
+
+mymap.on('click',function(e){
+var flag=0;
+	var coord = e.latlng.toString().split(',');
+		var lat = coord[0].split('(');
+		var lng = coord[1].split(')');
+		q.innerHTML=lat[1]+" "+lng[0];
+		for(var p=0;p<arr.length;p++)
+		{
+			console.log(arr[p][0]+" "+arr[p][1]);
+			if(lat[1]==arr[p][0]&&lng[0]==arr[p][1])
+				{
+					console.log("Destination set");
+					flag=1;
+					dest_lat=lat[1];
+					dest_lon=lng[0];
+				}
+		}
+		if(flag==0)
+		{
+			console.log("select the specified locations");
+		}
+		
+
+});
+
+			var markera=L.marker([30.352384, 76.363344]).addTo(mymap).on('click',function(e){
+				//mymap.removeLayer(markera);
+				setDestMark(e);
+			 });
+			 var markerb=L.marker([30.352877, 76.363172]).addTo(mymap).on('click',function(e){
+				//mymap.removeLayer(markerb);
+				setDestMark(e);
+			 });
+			 var markerc=L.marker([30.353257, 76.363207]).addTo(mymap).on('click',function(e){
+				//mymap.removeLayer(markerc);
+				setDestMark(e);
+			 });
+			 var markerd=L.marker([30.353264, 76.363496]).addTo(mymap).on('click',function(e){
+				//mymap.removeLayer(markerd);
+				setDestMark(e);
+			 });
+			 var markere=L.marker([30.352907, 76.363668]).addTo(mymap).on('click',function(e){
+				//mymap.removeLayer(markere);
+				setDestMark(e);
+			 });
+			 var markerf=L.marker([30.352414, 76.363665]).addTo(mymap).on('click',function(e){
+				//mymap.removeLayer(markerf);
+				setDestMark(e);
+			 });
+			 var markerg=L.marker([30.3529, 76.363454]).addTo(mymap).on('click',function(e){
+				//mymap.removeLayer(markerg);
+				setDestMark(e);
+			 });
+
+			 
+	 
+	
+/*for (var i=0, j=0; i<arr.length; i++) {
+           
+            var lat = arr[i][0];
+            var lon = arr[i][1];
+            var popupText = arr[i][2];
+            
+             markers[j]=L.marker([lat, lon]).addTo(mymap).on('click',function(e){
+				mymap.removeLayer(markers[j]);
+			 });
+			 j++;
+			//	marker.bindPopup(popupText);
+         }*/
+
+
+ /* L.Routing.control({
+    waypoints: [
+        L.latLng(30.352712200000003, 76.3632071),
+        L.latLng(30.352629, 76.363218)
+    ],
+    routeWhileDragging: true,
+	 waypointMode: 'snap'
+}).addTo(mymap);*/
+
+
+
+}
+
+function getDistanceFromLatLonInM(lat1,lon1,lat2,lon2) {
+  var R = 6371; // Radius of the earth in km
+  var dLat = deg2rad(lat2-lat1);  // deg2rad below
+  var dLon = deg2rad(lon2-lon1); 
+  var a = 
+    Math.sin(dLat/2) * Math.sin(dLat/2) +
+    Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
+    Math.sin(dLon/2) * Math.sin(dLon/2)
+    ; 
+  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+  var d = R * c; // Distance in km
+  return (d * 1000).toFixed(1);
+}
+
+function deg2rad(deg) {
+  return deg * (Math.PI/180)
+}
+
+
+function display(){
+  for(var i=0;i<arr.length;i++)
+  {
+  console.log(arr[i][0]+","+arr[i][1]);
+  }
+}
+
+
+
+
+
+</script>
+</body>
+</html>

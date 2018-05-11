@@ -1,0 +1,19 @@
+features:
+
+*1. Station mapping(enquiry window, retiring rooms, waiting rooms, toilets, RPF/GRPF offices,
+	station control offices, foot over bridges, lift / escalators, wheelchair, emergency facilities, etc)
+2. online complaints(RPF/GRPF, safai, emergency)
+3. Feedback(journey feedback)
+*4. Railway forum and self evolving community
+--5. journey planner(experience learning)
+*6. online booking(pantry food, food joints, retiring room)
+7. travel guide(passenger info about tourist places and important places with passenger reference)
+	-> eg. doctor will be informed about famous hospitals, research centers, and other relevent things
+@8. Platform announcements
+9. Onboard info and contact(RPF, catering, Medical, Safai)
+--10. live station updates
+
+socially responsive
+1. voice features for visually impaired
+2. global help button
+3. global chat and enquiry box

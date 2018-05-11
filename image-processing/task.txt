@@ -1,0 +1,3 @@
+//cartesian plane
+
+//image - svg -> upload (site) -> random click -> co-ordinates
