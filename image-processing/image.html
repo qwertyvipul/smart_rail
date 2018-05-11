@@ -1,0 +1,31 @@
+<!--task to accompish
+1. reigster click event on the image and return the co-ordinates
+2. open up a from asking the name of that node and to confirm registration
+3. if not goto 1
+4. if yes insert the nodename and co-ordinates in the database
+5. goto 1.
+
+-->
+<!doctype html>
+<html lang="en" charset="UTF-8">
+<head>
+<title></title>
+</head>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script>
+//co-ordinates on mouse click
+//x-axis -> horizontal -> left to right
+//y-axis -> vertical -> top to bottom
+//origin -> top-left corner
+$(document).ready(function() {
+  $('img').click(function(e) {
+    var offset = $(this).offset();
+    console.log(e.pageX - offset.left);
+    console.log(e.pageY - offset.top);
+  });
+});
+</script>
+<body>
+<img src="map.jpg" width="1000px"/>
+</body>
+</html>

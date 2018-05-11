@@ -1,0 +1,165 @@
+/*IMPORTS*/
+/*@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
+@import url('https://fonts.googleapis.com/css?family=Sirin+Stencil');*/
+
+
+/*GENERAL STYLE*/
+*{margin:0; padding:0; box-sizing:border-box;}
+body{background:#f2f2f2; }
+.link:hover{cursor:pointer;}
+
+
+/*SITE HEADER*/
+.site-head, .login-head{background:#0087b3;}
+.sh-mid-hr{border:none; border-top:1px solid #eee;}
+.sh-low-hr{border:none; border-top:1px solid #ccc;}
+.site-info{padding:10px;}
+.site-name{float:left; font-family:cursive; color:#009ae6; color:#fff;}
+.si-button{float:right; padding:5px 10px; background:#eee; border:0 none;}
+
+
+/*SITE MENU*/
+.site-menu{text-align:center;}
+.site-menu li{list-style:none; float:left; color:#999; padding:0px 1% 0px 1%; width:20%; padding-top:3px; background:#fff;}
+.sm-icon{}
+.sm-name{display:none;}
+.sm-last{padding-right:0px;}
+.site-menu li:hover{background:#eee; color:#0087b3;}
+
+
+/*INDEX BOX*/
+.index-section{max-width:700px; margin:0 auto;}
+.index-box{margin:2%; background:#fff; box-shadow:0px 0px 5px #777; padding:5px 0px; border-radius:4px;}
+.ib-head{text-align:left;}
+.ib-label{padding:2px 60px 2px 20px; background:#0087b3; display:inline-block; color:#fff;}
+.ib-section{padding:4px;}
+.ib-footer{text-align:center;}
+.ib-button, .ex-button{background:#0087b3; padding:4px; border:none; color:#fff; margin-top:5px; font-weight:bold;}
+
+
+/*INDEX APP*/
+.index-app{display:inline-block; text-align:center; padding:6px 4px; margin:4px 2px; background:#f1f1f1; width:70px; height:60px; color:#006384;}
+.index-app:hover{background:#daf6ff;}
+.ip-pic{}
+.ip-name{font-weight:normal; font-size:12px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+
+
+/*USER APP*/
+.user-app{display:inline-block; text-align:center; padding:6px 4px; margin:4px 2px; background:#fff; width:110px;}
+.up-pic{}
+.up-name, .up-info{text-align:left; font-weight:normal; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+.up-name{color:#004d67; font-size:14px;}
+.up-info{color:#666; font-size:11.5px;}
+
+
+/*TOP MESSAGE*/
+.top-message{padding:5px; background:#e4ffe4; color:#007600;}
+.station-confirm{padding:5px;}
+
+/*EXPAND BOX*/
+.expand-box{padding:0px;}
+.ex-head{background:#51d4ff; color:#004c65; padding:20px 10px; font-size:20px;}
+.ex-title{float:left;}
+.ex-plus{float:right; border-radius:100px; border:none; padding:2px 0px; display:none;}
+.ex-form{padding:10px;}
+.ex-label{padding:2px; color:#006384;}
+.ex-input{width:100%; padding:7px; border-radius:5px; border:1px solid #0087b3; margin-bottom:10px;}
+.ex-button{min-width:100px;}
+
+
+/*TOP STORIES*/
+.top-stories{padding:2px;}
+.ts-pic{float:left; padding:2px; width:30%;}
+.ts-content{overflow:hidden; text-overflow:ellipsis; padding:2px;}
+.ts-title{font-weight:normal; color:#000;}
+
+
+/*COVER BOX*/
+.cover-box{width:100%; position:relative;}
+.cover-pic{width:100%; display:block;}
+.profile-box{position:absolute; bottom:1.5%; left:1%;}
+.profile-pic{width:30%; display:block; float:left; padding:1%; background:#fff; border:1px solid black; border-radius:2%;}
+.profile-name{position:absolute; color:#fff; bottom:10%; left:33%; text-shadow:0px 0px 10px #000;}
+
+
+/*PAGE MENU*/
+.pm-box{width:100%; background:#fff; padding:2px;}
+.pm-menu{width:100%;}
+.pm-item{list-style:none; float:left; text-align:center;}
+.pm-icon{width:10%; padding:5px 0px 0px 0px; color:#0087b3;}
+.pm-icon:first-of-type{padding-right:2px; border-right:1px solid #ddd;}
+.pm-icon:last-of-type{padding-left:2px; border-left:1px solid #ddd;}
+.pm-name{width:80%; padding:6px; color:#004c65;}
+
+
+/*USER FORM*/
+.user-form{background:#fff;width:98%; margin:0 auto; max-width:400px;}
+.uf-head{}
+
+
+/*ANNOUNCEMENTS*/
+.ans-div{margin-top:5px;}
+.ans-head{background:#51d4ff; padding:5px; font-size:14px;}
+.ans-date{float:left;}
+.ans-time{float:right;}
+.ans-section, .ans-footer{background:#daf6ff; padding:5px;}
+.ans-title{color:#001f2a;}
+.ans-content{color:#222;}
+.ans-footer{padding:2px; text-align:center;}
+.ans-button{background:#0087b3; border:none; color:#fff; padding:5px; width:100%; font-weight:bold;}
+
+/*OTHER ENQUIRY*/
+.other-ebutton{width:100%; padding:10px; background:#51ff11; font-weight:bold;}
+
+/*ENQUIRY SCROLL*/
+.enquiry-scroll{padding:5px;}
+.es-title{color:#006384; font-size:18px;}
+.es-title-button{padding:2px; color:#fff; background:#00ade6; border:none;}
+.es-user{font-size:11px; color:#0087b3; float:left;}
+.es-description{color:#444;}
+.es-reply{color:#009a49;}
+.es-mid-hr{color:#aaa; border:1px solid #006384;}
+
+
+/*PAGE FOOT BUTTON*/
+.page-foot-button{width:100%; padding:10px; background:#51ff11; font-weight:bold;}
+.box-foot-button{width:100%; padding:10px; background:lightblue; font-weight:bold; margin:0 auto;}
+
+/*MENU APP*/
+.ma-box{padding:0px;}
+.ma-label{width:100%; text-align:left; padding:12px 5px; }
+.menu-app{padding:0px; list-style:none;}
+.ma-name{padding:10px 10px; border-bottom:1px solid #00ade6; color:#0087b3;}
+
+/*TRAIN STATUS*/
+.tt-box{padding:0px;}
+.tt-head{padding:5px; background:#51d4ff;}
+.tt-title{font-weight:normal; color:#000; font-size:16px;}
+.tt-date{font-weight:normal; color:#444; font-size:14px; padding:5px 0px 0px 0px;}
+.tt-update{padding:5px;}
+
+
+/*LOGIN HEADER*/
+.login-site-name{text-align:center; color:#fff; font-weight:bolder;}
+
+/*SITE FOOTER*/
+.site-footer{background:#ccc; padding:15px 5px; font-size:14px; text-align:center; margin-top:10px;}
+
+/*FORUM*/
+.forum-question{background:#fff;}
+.flink-div{padding:7px;}
+.flink{text-decoration:none; color:#0087b3;}
+.fa-div{padding:5px; border-bottom:2px solid #0087b3;}
+.fa-answer{padding:5px; border-bottom:1px solid black;}
+
+.fa-foot-ul{list-style:none;}
+.fa-foot-li{list-style:none; float:left; width:33.33%;}
+.fa-foot-button{padding:3px; font-size:11px; width:100%;}
+
+
+/*NOTIFICATIONS*/
+.unread-notification{font-weight:bold; font-size:12px; display:inline-block; padding:2px; background:red; color:#fff;}
+
+.bholu-chat{position:fixed; bottom:10px; right:10px; padding:5px;background:#0087b3; color:#fff; font-weight:bold;}
+

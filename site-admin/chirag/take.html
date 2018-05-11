@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chiragm4</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
+	<script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+	
+</head>
+<body>
+
+<div id="mapid" style="width: 600px; height: 400px;"></div>
+<button onclick="getLocation()">Try It</button>
+<button onclick="display()">display</button>
+<p id="demo"></p>
+<p id="doit"></p>
+<p id="doiton"></p>
+<p id="yash"></p>
+<script>
+
+var x = document.getElementById("demo");
+var y = document.getElementById("doit");
+var z= document.getElementById("doiton");
+var a= document.getElementById("yash");
+var lat = "";
+var lon ="";
+var arr=[
+
+[30.352384, 76.363344,"a"],
+
+[30.352877, 76.363172,"b"],
+
+[30.353257, 76.363207,"c"],
+
+[30.353264, 76.363496,"d"],
+
+[30.352907, 76.363668,"e"],
+
+[30.352414, 76.363665,"f"],
+
+[30.3529, 76.363454,"g"]
+
+];
+
+
+       
+var options = {
+	enableHighAccuracy: true,
+	timeout: 5000,
+	maximumAge: 0       
+};
+
+
+function getLocation(){
+    if (navigator.geolocation) {
+        navigator.geolocation.watchPosition(showPosition, error, options);
+    }else{ 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function error(){
+	x.innerHTML = "not able to connect to server";
+}
+	
+//called by geo location
+function showPosition(position){
+    x.innerHTML = "Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude + "<br>Accuracy: " + position.coords.accuracy;
+	lat = position.coords.latitude;
+	lon = position.coords.longitude;
+	accuracy=position.coords.accuracy;
+
+	
+
+	var mymap = L.map('mapid');
+	mymap.setView([lat, lon], 20);
+	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+		maxZoom: 23,
+		id: 'mapbox.streets'
+	}).addTo(mymap);
+
+	var current=L.marker([lat, lon]);
+	current.addTo(mymap);
+	
+	mymap.on('click', function(e){
+		var Marker = L.marker(e.latlng).addTo(mymap);
+		var coord = e.latlng.toString().split(',');
+		var lat = coord[0].split('(');
+		var lng = coord[1].split(')');
+		z.innerHTML=lat[1]+" "+lng[0];
+		//markers.push([lat[1],lng[0]]);
+		//a.innerHTML=markers.length;
+   });
+   
+
+ 
+		 
+	
+for (var i=0; i<arr.length; i++) {
+           
+            var lat = arr[i][0];
+            var lon = arr[i][1];
+            var popupText = arr[i][2];
+            
+             var marker = L.marker([lat, lon]);
+             marker.addTo(mymap);
+				marker.bindPopup(popupText);
+         }
+   
+ /* L.Routing.control({
+    waypoints: [
+        L.latLng(30.352712200000003, 76.3632071),
+        L.latLng(30.352629, 76.363218)
+    ],
+    routeWhileDragging: true,
+	 waypointMode: 'snap'
+}).addTo(mymap);*/
+
+
+
+}
+
+function getDistanceFromLatLonInM(lat1,lon1,lat2,lon2) {
+  var R = 6371; // Radius of the earth in km
+  var dLat = deg2rad(lat2-lat1);  // deg2rad below
+  var dLon = deg2rad(lon2-lon1); 
+  var a = 
+    Math.sin(dLat/2) * Math.sin(dLat/2) +
+    Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
+    Math.sin(dLon/2) * Math.sin(dLon/2)
+    ; 
+  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+  var d = R * c; // Distance in km
+  return (d * 1000).toFixed(1);
+}
+
+function deg2rad(deg) {
+  return deg * (Math.PI/180)
+}
+
+
+function display(){
+  for(var i=0;i<arr.length;i++)
+  {
+  console.log(arr[i][0]+","+arr[i][1]);
+  }
+}
+
+
+
+
+
+</script>
+</body>
+</html>
