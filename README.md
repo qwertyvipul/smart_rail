@@ -1,4 +1,4 @@
-# smart_india_hackathon_2018
+# Smart Rail (Smart India Hackathon - 2018)
 The Smart Rail Website in PHP and MySql developed at Smart India Hackathon - 2018.
 
 The website was designed for the Indian Railways to help upgrade their services and also introduce some new innovative digital services for the passengers.
