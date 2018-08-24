@@ -12,6 +12,8 @@ Some of the key features that the website offers:
   <li>Digital Enquiry</li>
 </ul>
 
+![Block Diagram](block_diagram.jpg)
+
 Besides these it is also designed to easily integrate the various services currently being offered by the Indian Railway website (https://www.irctc.co.in) and other third party platforms.
 
 Do visit the website at:
