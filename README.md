@@ -13,6 +13,8 @@ Some of the key features that the website offers:
   <li>Chat Bot (https://github.com/ddsky/chatbot)</li>
 </ul>
 
+![Block Diagram](Block_diagram.jpg)
+
 Besides these it is also designed to easily integrate the various services currently being offered by the Indian Railway website (https://www.irctc.co.in) and other third party platforms.
 
 Do visit the website at:
