@@ -22,6 +22,6 @@ Do visit the website at: [Click Here](http://grilled-malfunction.000webhostapp.c
 PS: We did received recognition for our innovation by the organizers in the form of cash prize of Rs. 10,000 and we were ranked 6<sup>th</sup> in this national level hackathon.
 
 ## Contributors
-[Vipul Sharma](https://thevipulsharma.github.io/)
-[Yash Srivastava](https://yashmustak.github.io/)
-[Vikram Singh](https://vickyjaani.github.io/)
+* [Vipul Sharma](https://thevipulsharma.github.io/)
+* [Yash Srivastava](https://yashmustak.github.io/)
+* [Vikram Singh](https://vickyjaani.github.io/)
