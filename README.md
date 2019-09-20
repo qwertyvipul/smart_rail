@@ -17,7 +17,6 @@ Some of the key features that the website offers:
 
 Besides these it is also designed to easily integrate the various services currently being offered by the Indian Railway website (https://www.irctc.co.in) and other third party platforms.
 
-Do visit the website at:
-http://www.orbitnext.com/sih
+Do visit the website at: [Click Here](http://www.grilled-malfunction.000webhostapp.com/sih)
 
 PS: We did received recognition for our innovation by the organizers in the form of cash prize of Rs. 10,000 and we were ranked 6<sup>th</sup> in this national level hackathon.
